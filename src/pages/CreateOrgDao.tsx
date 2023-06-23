@@ -8,7 +8,7 @@ import DAOFactoryABI from "infra-dao/artifacts/contracts/DAOFactory.sol/DAOFacto
 import BoxABI from "infra-dao/artifacts/contracts/Box.sol/Box.json";
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
-import { Box, DAOFactory } from "../../../infra-dao/typechain-types";
+import { Box, DAOFactory } from "infra-dao/typechain-types";
 import addresses from "infra-dao/deployments.json";
 import { WalletConnectContext } from "../context";
 import web3 from "web3";
@@ -221,7 +221,7 @@ export const CreateOrgDaoPage = () => {
               {/* register your input into the hook by invoking the "register" function */}
               <span className="flex flex-col gap-2">
                 <span className="text-body-lg font-medium text-gray-900 dark:text-gray-50">
-                  <QuestionMarkTooltip text="Name of the main organization">
+                  <QuestionMarkTooltip text="Name of the main organization.">
                     Organization Name *
                   </QuestionMarkTooltip>
                 </span>
@@ -233,15 +233,15 @@ export const CreateOrgDaoPage = () => {
                 />
                 <div className="text-red-500 font-medium text-body-sm">
                   {/* errors will return when field validation fails  */}
-                  {errors.orgName && <span>The org. name is required</span>}
+                  {errors.orgName && <span>The organization name is required</span>}
                 </div>
               </span>
 
               {/* include validation with required or other standard HTML validation rules */}
               <span className="flex flex-col gap-2">
                 <span className="text-body-lg font-medium text-gray-900 dark:text-gray-50">
-                  <QuestionMarkTooltip text="Provide a good description of the mission of your organization">
-                    Organisation Description *
+                  <QuestionMarkTooltip text="Describe the orgnanization's mission statement.">
+                    Organization Description *
                   </QuestionMarkTooltip>
                 </span>
                 <textarea
@@ -254,14 +254,14 @@ export const CreateOrgDaoPage = () => {
                 />
                 <div className="text-red-500 font-medium text-body-sm">
                   {errors.orgDescription && (
-                    <span>The org. description is required</span>
+                    <span>The organization description is required</span>
                   )}
                 </div>
               </span>
 
               <span className="flex flex-col gap-2">
                 <span className="text-body-lg font-medium text-gray-900 dark:text-gray-50">
-                  <QuestionMarkTooltip text="Provide the URI of the NFT metadata your users will need to access the DAO">
+                  <QuestionMarkTooltip text="The participants will acess the DAO through an NFT. Provide the URI of the NFT metadata.">
                     Membership NFT URI *
                   </QuestionMarkTooltip>
                 </span>
@@ -280,7 +280,8 @@ export const CreateOrgDaoPage = () => {
 
               <span className="flex flex-col gap-2">
                 <span className="text-body-lg font-medium text-gray-900 dark:text-gray-50">
-                  <QuestionMarkTooltip text="We'll batch mint some NFTs for the the first members of the DAO">
+                  <QuestionMarkTooltip text="Batch mint some NFTs for the the first members of the DAO.
+                  You can airdrop the NFT directly to them afterwards.">
                     Membership NFT Initial Supply *
                   </QuestionMarkTooltip>
                 </span>
@@ -343,7 +344,8 @@ export const CreateOrgDaoPage = () => {
 
               <span className="flex flex-col gap-2">
                 <span className="text-body-lg font-medium text-gray-900 dark:text-gray-50">
-                  <QuestionMarkTooltip text="A user needs <threshold> casted votes to be able to propose. Starts at 0.">
+                  <QuestionMarkTooltip text="A user needs <threshold> casted votes to be able to propose.
+                  Will start at 0 such that everyone can propose in the beginning.">
                     Proposal Threshold
                   </QuestionMarkTooltip>
                 </span>
